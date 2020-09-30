@@ -1,6 +1,6 @@
 export const showSuccessMessage = (success) => {
-  return <div className="alert alert-success">{success}</div>;
+  return <div className="Alert_success">{success}</div>;
 };
 export const showErrorMessage = (error) => {
-  return <div className="alert alert-danger">{error}</div>;
+  return <div className="Alert_success">{error}</div>;
 };

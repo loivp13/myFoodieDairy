@@ -1,0 +1,57 @@
+.UserSetting {
+  width: 85%;
+  padding: 5rem;
+  background-color: #f4ecbd;
+  z-index: 2;
+  transform: rotate(4deg);
+  box-shadow: 10px 4px 8px 2px #888888;
+  &_form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & > div > input {
+      border: none;
+      height: 4rem;
+      font-size: 2rem;
+      font-family: "Covered By Your Grace", cursive;
+
+      text-align: start;
+      padding-left: 1rem;
+      width: 50%;
+      background-color: #f4ecbd;
+
+      &::placeholder {
+        padding-left: 1rem;
+
+        color: rgba(63, 116, 141, 0.589);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    & > * {
+      border-bottom: 1px rgba(0, 0, 0, 0.726) solid;
+      margin-bottom: 2rem;
+    }
+    &-button {
+      margin-top: 1rem;
+      align-self: flex-end;
+
+      border: 2px solid black;
+      font-family: "Covered By Your Grace", cursive;
+
+      text-transform: capitalize;
+      background-color: #f4ecbd;
+      font-size: 2rem;
+      border-radius: 20px;
+      padding: 1rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &_joinDate {
+    width: 100%;
+  }
+}

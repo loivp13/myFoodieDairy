@@ -1,0 +1,41 @@
+.Button {
+  &_clear {
+    &--hov_turqiose {
+      text-transform: capitalize;
+      background-color: white;
+      font-size: 4rem;
+      border-radius: 20px;
+      margin-bottom: 3rem;
+      border: none;
+      font-family: "Covered By Your Grace", cursive;
+
+      text-align: center;
+    }
+    &:hover {
+      background-color: #afeeee;
+      cursor: pointer;
+      color: white;
+    }
+  }
+  &_red {
+    background-color: red;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+    &:hover {
+      transform: translateY(3px);
+    }
+  }
+  &_green {
+    background-color: green;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+
+    &:hover {
+      transform: translateY(3px);
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.Layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  @include respond("phone") {
+  }
+  & > img {
+    width: 10vw;
+    height: auto;
+    position: absolute;
+    @include respond("tab-port") {
+      display: none;
+    }
+  }
+  &_images--1 {
+    top: 8%;
+    left: 4%;
+    transform: rotate(-8deg);
+    @include respond("tab-land") {
+      left: 2vw;
+      transform: rotate(10deg);
+    }
+  }
+  &_images--2 {
+    top: 20vw;
+    left: 10vw;
+  }
+  &_images--3 {
+    top: 28vw;
+    left: 7vw;
+    transform: rotate(10deg);
+    @include respond("tab-land") {
+      top: 28vw;
+      left: 2vw;
+      transform: rotate(10deg);
+    }
+  }
+  &_images--4 {
+    top: 50vw;
+    left: 10vw;
+  }
+  &_images--5 {
+    top: 4vw;
+    right: 9vw;
+    transform: rotate(14deg);
+    @include respond("tab-land") {
+      top: 4vw;
+      right: 4vw;
+    }
+  }
+  &_images--6 {
+    top: 25vw;
+    right: 0vw;
+  }
+  &_images--7 {
+    top: 20vw;
+    right: 13vw;
+    transform: rotate(-8deg);
+    @include respond("tab-land") {
+      right: 2vw;
+    }
+  }
+  &_images--8 {
+    top: 50vw;
+    right: 0vw;
+  }
+  &_images--9 {
+    top: 36vw;
+    right: 11vw;
+    transform: rotate(8deg);
+    right: 3vw;
+  }
+}

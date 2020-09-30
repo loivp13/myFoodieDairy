@@ -1,0 +1,71 @@
+.Login {
+  width: 50vw;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include respond("tab-port") {
+    height: 60%;
+  }
+  & > h1 {
+    font-size: 7rem;
+    margin-bottom: 2rem;
+  }
+  &_form {
+    & > div > input {
+      text-align: center;
+      border: none;
+      height: 6rem;
+      font-size: 3rem;
+      font-family: "Amatic SC", cursive;
+      margin-bottom: 3rem;
+      &::placeholder {
+        text-align: center;
+        color: rgba(63, 116, 141, 0.589);
+      }
+      &:focus {
+        text-align: center;
+        outline: none;
+      }
+    }
+    &--input {
+    }
+    &-button {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: baseline;
+      clear: right;
+      &--pw {
+        font-size: 2rem;
+        &:hover {
+          color: #afeeee;
+        }
+      }
+      &--register {
+        font-size: 2rem;
+        color: black;
+        &:hover {
+          color: #afeeee;
+        }
+      }
+      &--login {
+        float: right;
+        border: none;
+        font-family: "Covered By Your Grace", cursive;
+
+        text-transform: capitalize;
+        color: black;
+        font-size: 3rem;
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        border: 3px solid black;
+        padding: 0.5rem;
+        background-color: white;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

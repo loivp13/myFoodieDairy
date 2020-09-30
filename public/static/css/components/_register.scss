@@ -1,0 +1,47 @@
+.Register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include respond("tab-port") {
+    padding-top: 15rem;
+  }
+  &_header {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+  &_form {
+    & > div > input {
+      border: none;
+      height: 4rem;
+      font-size: 3rem;
+
+      font-family: "Covered By Your Grace", cursive;
+      margin-bottom: 3rem;
+      text-align: center;
+      &::placeholder {
+        text-align: center;
+        color: rgba(63, 116, 141, 0.589);
+      }
+      &:focus {
+        text-align: center;
+        outline: none;
+      }
+    }
+    &--button {
+      align-self: flex-end;
+      float: right;
+      font-family: "Covered By Your Grace", cursive;
+      text-transform: capitalize;
+      color: black;
+      background-color: white;
+      font-size: 2.75rem;
+      border-radius: 20px;
+      border: 3px solid black;
+      padding: 0.5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

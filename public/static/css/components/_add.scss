@@ -1,0 +1,170 @@
+.Add {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex;
+  align-items: flex-start;
+  padding: 5rem;
+  font-size: 2rem;
+  @include respond("tab-port") {
+    width: 60vw;
+  }
+  &_card {
+  }
+  &_form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & > div > input {
+      border: 1 rgba(0, 0, 0, 0.089) solid;
+      height: 4rem;
+      font-size: 3rem;
+      font-family: "Covered By Your Grace", cursive;
+
+      margin-bottom: 3rem;
+      text-align: start;
+      padding-left: 1rem;
+
+      &::placeholder {
+        padding-left: 1rem;
+
+        color: rgba(63, 116, 141, 0.589);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    &--description {
+      &--textarea {
+        border: 1 rgba(0, 0, 0, 0.089) solid;
+
+        width: 30vw;
+        height: 20vh;
+        font-size: 3rem;
+        font-family: "Covered By Your Grace", cursive;
+
+        text-align: start;
+        padding-left: 1rem;
+        @include respond("tab-port") {
+          width: 50vw;
+        }
+        &::placeholder {
+          color: rgba(63, 116, 141, 0.589);
+          padding-left: 1rem;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    &--dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      &--selectedBox {
+        display: flex;
+        flex-direction: row;
+        align-self: flex-start;
+        flex-wrap: wrap;
+        &-item {
+          font-size: 1.5rem;
+          margin-left: 1rem;
+          border: 1px solid black;
+          padding: 0.5rem;
+          border-radius: 10px;
+          margin-bottom: 5px;
+        }
+      }
+      &--list {
+        position: relative;
+        display: inline-block;
+        margin-top: 3rem;
+        font-size: 2rem;
+        &-item {
+          font-size: 1.75rem;
+          &:hover {
+            border: 1px solid lightskyblue;
+            border-radius: 5px;
+            background-color: lightcyan;
+          }
+        }
+        &-content {
+          display: flex;
+          flex-direction: column;
+
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          width: 30rem;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+          bottom: 90%;
+          & > * {
+            padding-left: 1.5rem;
+          }
+        }
+        &:hover &-content {
+          display: flex;
+        }
+        &-itemChecked {
+          background-color: lightcyan;
+          border: 1px solid lightcyan !important;
+        }
+      }
+    }
+    &--image {
+      &-plus {
+        & > svg {
+          width: 15px;
+        }
+      }
+      &--label {
+        &:hover {
+          cursor: pointer;
+          color: #afeeee;
+          border-radius: 40px;
+        }
+      }
+      &--input {
+      }
+    }
+    &--buttons {
+      align-self: flex-end;
+      margin-right: 3rem;
+    }
+    &--button {
+      margin-top: 1rem;
+      align-self: flex-end;
+
+      border: 3px solid black;
+      font-family: "Covered By Your Grace", cursive;
+
+      text-transform: capitalize;
+      background-color: white;
+      font-size: 3rem;
+      border-radius: 20px;
+      padding: 1rem;
+      @include respond("tab-port") {
+        font-size: 2rem;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &_rating {
+    padding: 1rem;
+    align-self: start;
+    &-icon {
+      width: 25px !important;
+      height: 25px !important;
+    }
+    &-emptyIcon {
+      display: block;
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+}

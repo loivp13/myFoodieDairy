@@ -1,0 +1,43 @@
+.SharePage {
+  position: relative;
+  width: 100%;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  overflow: hidden;
+  &_image--logo {
+    position: absolute;
+    width: 7em;
+    height: 3em;
+    right: 1rem;
+    top: -1rem;
+  }
+
+  &_content {
+    overflow: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-left: -1rem;
+    margin-top: 2rem;
+    position: relative;
+    top: 25px;
+    left: 0;
+    width: 90%;
+    height: 90vh;
+    direction: rtl;
+    padding: 0 4rem;
+    & > * {
+      direction: ltr;
+    }
+    &--header {
+      height: 30px;
+      display: flex;
+      padding: 0 4rem;
+      position: relative;
+      bottom: -20px;
+      &-title {
+        font-size: 3rem;
+      }
+    }
+  }
+}

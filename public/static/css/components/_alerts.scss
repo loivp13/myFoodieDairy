@@ -1,0 +1,12 @@
+.Alert {
+  &_success {
+    color: green;
+    font-size: 2rem;
+    text-align: center;
+  }
+  &_success {
+    font-size: 2rem;
+    color: red;
+    text-align: center;
+  }
+}

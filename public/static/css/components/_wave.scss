@@ -1,0 +1,25 @@
+.Wave {
+  &_container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: -12px;
+  }
+
+  &_container > *:empty {
+    width: 16%;
+    height: 10px;
+    border-bottom: 2px solid black;
+    border-radius: 50%;
+  }
+
+  &_container > *:after {
+    content: ".";
+    display: none;
+  }
+
+  &_container > *:nth-child(odd) {
+    border-bottom: none;
+    border-top: 2px solid black;
+  }
+}

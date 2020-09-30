@@ -1,0 +1,16 @@
+.Scroll {
+  &_1::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &_1::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+  }
+
+  &_1::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+  }
+}

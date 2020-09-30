@@ -1,0 +1,22 @@
+.Activate {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 7rem;
+  &_header {
+    font-size: 2rem;
+  }
+  &_button {
+    font-family: "Covered By Your Grace", cursive;
+
+    font-size: 2rem;
+    padding: 1.5rem;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 30px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -50,19 +50,16 @@ const ActivateAccount = ({ router }) => {
   };
   return (
     <Layout>
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
-          <h1>Hello {name}, ready to activate your account?</h1>
-          <br />
-          {success && showSuccessMessage(success)}
-          {error && showErrorMessage(error)}
-          <button
-            onClick={clickSubmit}
-            className="btn btn-outline-warning btn-block"
-          >
-            {buttonText}
-          </button>
-        </div>
+      <div className="Activate">
+        <h1 className="Activate_header">
+          Hello {name}, are you ready to activate your account?
+        </h1>
+        <br />
+        {success && showSuccessMessage(success)}
+        {error && showErrorMessage(error)}
+        <button onClick={clickSubmit} className="Activate_button">
+          {buttonText}
+        </button>
       </div>
     </Layout>
   );

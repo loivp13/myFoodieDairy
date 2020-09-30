@@ -1,0 +1,90 @@
+.User {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  align-items: stretch;
+  top: -2rem;
+  border-radius: 50px;
+  overflow: hidden;
+  z-index: 0;
+  &_images--lines {
+    position: absolute;
+    width: 10rem;
+    height: 8rem;
+    top: 5rem;
+    left: 15%;
+    transform: rotate(15deg);
+    z-index: 4;
+  }
+  &_rightContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10rem;
+    font-size: 2rem;
+  }
+  &_leftContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5rem;
+    padding-top: 10rem;
+    font-size: 3rem;
+    z-index: 1;
+
+    & > *:hover {
+      cursor: pointer;
+    }
+  }
+
+  &_menu {
+    &--item {
+      margin-bottom: 3rem;
+      border-radius: 20px;
+      width: fit-content;
+      padding: 3px;
+      &:hover {
+        color: #afeeee;
+      }
+      &-welcome {
+      }
+      &-setting {
+      }
+    }
+  }
+  &_bottomContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    z-index: 4;
+    position: relative;
+
+    &-image1 {
+      width: 50rem;
+      height: 40rem;
+    }
+    &-image2 {
+      margin-top: 5rem;
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+}
+
+.Lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.Lines-veritcal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  transform: rotate(90deg);
+}

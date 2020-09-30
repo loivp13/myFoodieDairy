@@ -1,0 +1,34 @@
+.Share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+  & > * {
+    font-size: 3rem;
+  }
+  &_button {
+    &--confirm {
+      width: 100% !important;
+    }
+  }
+  &_buttons {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-around;
+    margin-top: 2rem;
+    align-items: center;
+
+    & > * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 7rem;
+      height: 7rem;
+      color: black;
+      border: 1px solid black;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  }
+}

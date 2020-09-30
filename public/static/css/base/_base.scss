@@ -24,16 +24,27 @@ html {
 }
 
 body {
+  padding-top: 3rem;
   box-sizing: border-box;
   background-color: white;
-  padding: 0 5rem;
-  @include respond(tab-port) {
-    padding: 0;
-  }
-  @include respond(phone) {
+
+  @include respond("tab-port") {
+    padding-top: 3rem;
   }
 }
+body::-webkit-scrollbar {
+  width: 8px;
+}
 
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
 ::selection {
   background-color: $color-primary;
   color: white;
@@ -45,11 +56,25 @@ li {
 
 a {
   text-decoration: none;
+  color: black;
   &:hover {
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
   }
   &:visited {
     color: black;
+  }
+}
+
+#__next {
+  position: relative;
+}
+
+h1 {
+  font-weight: normal;
+}
+button {
+  &:focus {
+    border: none;
   }
 }

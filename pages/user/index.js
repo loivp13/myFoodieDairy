@@ -1,119 +1,129 @@
 import Layout from "../../components/Layout";
+import WelcomeUser from "../../components/WelcomeUser";
+import UserSetting from "../../components/UserSetting";
+import ShareLinksList from "../../components/ShareLinksList";
+import GenerateLines from "../../components/GenerateLines";
 import axios from "axios";
 import { API } from "../../config";
 import { getCookie } from "../../helpers/auth";
 import withUser from "../withUser";
 import withAdmin from "../withAdmin";
 import Link from "next/link";
-import moment from "moment";
 import Router from "next/router";
+import { useEffect, useState } from "react";
 
-const User = ({ user, token, userLinks }) => {
-  const confirmDelete = (e, id) => {
-    e.preventDefault();
-    console.log("delete", id);
-    let answer = window.confirm("Are you sure you want to delete?");
-    if (answer) {
-      handleDelete(id);
-    }
-  };
-  const handleDelete = async (id) => {
-    try {
-      const response = await axios.delete(`${API}/link/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log("link delete success", response);
-      Router.replace("/user");
-    } catch (error) {
-      console.log("link delete error", error);
-    }
+const User = ({ userList, token, userLinks, statistics }) => {
+  const [state, setState] = useState({ currentComponent: "welcome" });
+
+  const handleChangeCurrentComponent = (component) => {
+    setState({ currentComponent: component });
   };
 
-  const listOfLinks = () => {
-    return userLinks.map((l, i) => {
-      return (
-        <div className="row alert alert-primary p-2" key={i}>
-          <div className="col-md-8">
-            <a href={l.url} target="_blank">
-              <h5 className="pt-2">{l.title}</h5>
-              <h6 className="pt-2 text-danger" style={{ fontSize: "12px" }}>
-                {l.url}
-              </h6>
-            </a>
-          </div>
-          <div className="col-md-4 pt-2">
-            <span className="pull-right">
-              {`${moment(l.createdAt).fromNow()} by ${l.postedBy.name}`}
-            </span>
-          </div>
-          <div className="col-md-12">
-            <span className="badge text-dark">
-              {l.type} / {l.medium}
-            </span>
-            {l.categories.map((c, i) => {
-              return <span className="badge text-dark">{c.name}</span>;
-            })}
-            s <span className="badge text-secondary">{l.clicks} clicks</span>
-            <Link href={`/user/link/${l._id}`}>
-              <span className="badge text-success pull-right">Update</span>
-            </Link>
-            <span
-              onClick={(e) => {
-                confirmDelete(e, l._id);
-              }}
-              className="badge text-danger pull-right"
-            >
-              Delete
-            </span>
-          </div>
-        </div>
-      );
-    });
+  const renderCurrentComponent = () => {
+    switch (state.currentComponent) {
+      case "welcome":
+        return (
+          <WelcomeUser
+            userList={userList}
+            statistics={statistics}
+          ></WelcomeUser>
+        );
+      case "setting":
+        return <UserSetting userList={userList} token={token}></UserSetting>;
+      case "shared links":
+        return <ShareLinksList statistics={statistics}></ShareLinksList>;
+      default:
+        return "";
+    }
   };
 
   return (
     <Layout>
-      <h1>
-        {user.name}'s dashboard{" "}
-        <span className="text-danger">/{user.role}</span>
-      </h1>
-      <hr />
-      <div className="row">
-        <div className="col-md-4">
-          <ul className="nav flex-column">
-            <li className="nav-item">
-              <Link href="/user/link/create">
-                <a className="nav link" href="">
-                  Update links
-                </a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/user/link/update">
-                <a className="nav link" href="">
-                  Update profile
-                </a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="user/profile/update">
-                <a href="" className="nav link">
-                  Update profile
-                </a>
-              </Link>
-            </li>
-          </ul>
+      <div className="User">
+        <img
+          className="User_images--lines"
+          src="static/images/lines.png"
+          alt=""
+        />
+        <div className="Lines">
+          <GenerateLines num={40}></GenerateLines>
         </div>
-        <div className="col-md-8">
-          <h2>Your links</h2>
-          <br />
-          {listOfLinks()}
+        <div className="User_leftContainer">
+          <div className="User_menu">
+            <div className="User_menu--item">
+              <div
+                className="User_menu--item-welcome!"
+                onClick={() => {
+                  handleChangeCurrentComponent("welcome");
+                }}
+              >
+                STATISTICS
+              </div>
+            </div>
+            <div className="User_menu--item">
+              <div
+                className="User_menu--item-setting"
+                onClick={() => {
+                  handleChangeCurrentComponent("setting");
+                }}
+              >
+                ACCOUNT SETTING
+              </div>
+            </div>
+            <div className="User_menu--item">
+              <div
+                onClick={() => {
+                  handleChangeCurrentComponent("shared links");
+                }}
+                className="User_menu--item-shareList"
+              >
+                SHARED LINKS
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="User_rightContainer">{renderCurrentComponent()}</div>
+        <div className="User_bottomContainer">
+          <img
+            className="User_bottomContainer-image1"
+            src="static/images/let's eat.png"
+            alt=""
+          />
+          <img
+            className="User_bottomContainer-image2"
+            src="static/images/asterisks.png"
+            alt=""
+          />
         </div>
       </div>
     </Layout>
   );
+};
+
+User.getInitialProps = async ({ query, req }) => {
+  const token = getCookie("token", req);
+  let response;
+  if (token) {
+    try {
+      response = await axios.get(`${API}/statistic`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+          contentType: "application/json",
+        },
+      });
+    } catch (err) {
+      if (err) {
+        console.log(err.response);
+      }
+    }
+  }
+  if (response) {
+    return {
+      statistics: response.data,
+      token,
+    };
+  }
+  return { user: "none" };
 };
 
 export default withUser(User);

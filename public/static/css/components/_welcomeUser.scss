@@ -1,0 +1,11 @@
+.WelcomeUser {
+  width: 85%;
+  padding: 3rem;
+  background-color: #f4ecbd;
+  z-index: 2;
+  transform: rotate(4deg);
+  box-shadow: 10px 4px 8px 2px #888888;
+  &_item {
+    margin-bottom: 1rem;
+  }
+}

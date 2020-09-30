@@ -1,0 +1,36 @@
+.Navbar {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  width: 50vw;
+  right: -6rem;
+  // align-self: flex-start;
+  // justify-content: space-evenly;
+  border-radius: 4px;
+  // left: -13%;
+  @include respond("tab-port") {
+    right: 15%;
+  }
+  & > li {
+    transition: all ease;
+    &:hover {
+      transform: translate(0, -10px);
+    }
+  }
+  & > li > a {
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-size: 3em;
+    border: 3px solid black;
+
+    @include respond("tab-land") {
+      font-size: 2.235rem;
+    }
+    @include respond("tab-port") {
+      font-size: 2rem;
+    }
+    &:hover {
+      background-color: paleturquoise;
+    }
+  }
+}

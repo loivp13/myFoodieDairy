@@ -1,4 +1,3 @@
-import moment from "moment";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import axios from "axios";

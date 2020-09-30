@@ -109,43 +109,15 @@ const Register = () => {
       });
     }
   };
-  // const handleSubmit =  (e) => {
-  //   e.preventDefault();
-  //   setState({ ...state, buttonText: "Registering" });
-  //   axios
-  //     .post(`http://localhost:8000/api/register`, {
-  //       name,
-  //       email,
-  //       password,
-  //     })
-  //     .then((response) => {
-  //       console.log(response);
-  //       setState({
-  //         ...state,
-  //         name: "",
-  //         email: "",
-  //         password: "",
-  //         buttonText: "Submitted",
-  //         success: response.data.message,
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       setState({
-  //         ...state,
-  //         buttonText: "Register",
-  //         error: error.response.data.error,
-  //       });
-  //     });
-  // };
 
   const registerForm = () => (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form className="Register_form" onSubmit={handleSubmit}>
+      <div className="">
         <input
           value={name}
           onChange={handleChange("name")}
           type="text"
-          className="form-control"
+          className="Register_form--name"
           placeholder="Type your name"
           required
         />
@@ -155,7 +127,7 @@ const Register = () => {
           value={email}
           onChange={handleChange("email")}
           type="email"
-          className="form-control"
+          className="Register_form--email"
           placeholder="Type your email"
           required
         />
@@ -165,29 +137,21 @@ const Register = () => {
           value={password}
           onChange={handleChange("password")}
           type="password"
-          className="form-control"
+          className="Register_form--password"
           placeholder="Type your password"
           required
         />
       </div>
       <div className="form-group">
-        <label htmlFor="" className="text-muted ml-4">
-          Category
-        </label>
-        <ul style={{ maxHeight: "100px", overflowY: "scroll" }}>
-          {showCategories()}
-        </ul>
-      </div>
-      <div className="form-group">
-        <button className="btn btn-outline-warning">{buttonText}</button>
+        <button className="Register_form--button">{buttonText}</button>
       </div>
     </form>
   );
   return (
     <Layout>
-      <div className="col-md-6 offset-md-3">
+      <div className="Register">
         <br />
-        <h1>Register</h1>
+        <h1 className="Register_header">Register</h1>
         {success && showSuccessMessage(success)}
         {error && showErrorMessage(error)}
         <br />

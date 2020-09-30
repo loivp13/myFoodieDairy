@@ -36,33 +36,31 @@ const ForgotPassword = () => {
   };
   const passwordForgotForm = () => {
     return (
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form className="ForgotPW_form" onSubmit={handleSubmit}>
+        <div className="">
           <input
             type="email"
-            className="form-control"
+            className="ForgotPW_form--email"
             onChange={handleChange}
             value={email}
             placeholder="Type your email"
             required
           />
         </div>
-        <div className="">
-          <button className="btn btn-outline-warning">{buttonText}</button>
+        <div className="ForgotPW_form--button">
+          <button className="">{buttonText}</button>
         </div>
       </form>
     );
   };
   return (
     <Layout>
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
-          <h1>Forgot Password</h1>
-          <br />
-          {success && showSuccessMessage(success)}
-          {error && showErrorMessage(error)}
-          {passwordForgotForm()}
-        </div>
+      <div className="ForgotPW">
+        <h1 className="ForgotPW_header">Forgot Password</h1>
+        <br />
+        {success && showSuccessMessage(success)}
+        {error && showErrorMessage(error)}
+        {passwordForgotForm()}
       </div>
     </Layout>
   );

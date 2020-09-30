@@ -10,8 +10,8 @@ import { authenticate, isAuth } from "../helpers/auth";
 const Login = () => {
   const [state, setState] = useState({
     name: "",
-    email: "",
-    password: "",
+    email: "loivp@yahoo.com",
+    password: "123456",
     error: "",
     success: "",
     buttonText: "Login",
@@ -45,7 +45,7 @@ const Login = () => {
       authenticate(response, () => {
         isAuth() && isAuth().role === "admin"
           ? Router.push("/admin")
-          : Router.push("/user");
+          : Router.push("/user/lists");
       });
     } catch (error) {
       console.log(error);
@@ -58,44 +58,48 @@ const Login = () => {
   };
 
   const loginForm = () => (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form className="Login_form" onSubmit={handleSubmit}>
+      <div className="">
         <input
+          className="Login_form--input"
           value={email}
           onChange={handleChange("email")}
           type="email"
-          className="form-control"
-          placeholder="Type your email"
+          placeholder="EMAIL"
           required
         />
       </div>
-      <div className="form-group">
+      <div>
         <input
+          className="Login_form--input"
           value={password}
           onChange={handleChange("password")}
           type="password"
-          className="form-control"
-          placeholder="Type your password"
+          placeholder="PASSWORD"
           required
         />
       </div>
-      <div className="form-group">
-        <button className="btn btn-outline-warning">{buttonText}</button>
+
+      <button className="Login_form-button--login">{buttonText}</button>
+      <div className="Login_form-button">
+        <Link href="/register">
+          <a className="Login_form-button--register">Register</a>
+        </Link>
+        <Link href="/auth/password/forgot">
+          <a className="Login_form-button--pw">Forgot Password</a>
+        </Link>
       </div>
     </form>
   );
   return (
     <Layout>
-      <div className="col-md-6 offset-md-3">
+      <div className="Login">
         <br />
-        <h1>Login</h1>
+        <h1>LOGIN</h1>
         {success && showSuccessMessage(success)}
         {error && showErrorMessage(error)}
         <br />
         {loginForm()}
-        <Link href="/auth/password/forgot">
-          <a className="text-danger float-right">Forgot Password</a>
-        </Link>
       </div>
     </Layout>
   );

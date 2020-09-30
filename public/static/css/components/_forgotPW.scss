@@ -1,0 +1,47 @@
+.ForgotPW {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &_header {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 15vh;
+  }
+  &_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &_form > div > input {
+    text-align: center;
+    border: none;
+    height: 4rem;
+    font-size: 4rem;
+    font-family: "Covered By Your Grace", cursive;
+    margin-bottom: 3rem;
+    &::placeholder {
+      text-align: center;
+      color: rgba(63, 116, 141, 0.589);
+    }
+    &:focus {
+      text-align: center;
+      outline: none;
+    }
+  }
+  &_form--button {
+    align-self: flex-end;
+    & > button {
+      border: 1px solid black;
+      padding: 1.5rem;
+      height: 6rem;
+      font-size: 2rem;
+      font-family: "Covered By Your Grace", cursive;
+
+      background-color: white;
+      border-radius: 20px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

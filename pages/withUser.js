@@ -8,26 +8,27 @@ const WithUser = (Page) => {
 
   WithAuthUser.getInitialProps = async (context) => {
     const token = getCookie("token", context.req);
-    let user = null;
-    let userLinks = [];
+    let userList = null;
     if (token) {
       try {
+        console.log("getting withAuthUser initialProps");
         const res = await axios.get(`${API}/user`, {
           headers: {
             authorization: `Bearer ${token}`,
             contentType: "application/json",
           },
         });
-        user = res.data.user;
-        userLinks = res.data.links;
+        userList = res.data;
       } catch (error) {
-        console.log("error with Auth User");
-        if (error.response.status === 401) {
-          return (user = null);
+        if (error.response) {
+          console.log("error with Auth User");
+          if (error.response.status === 401) {
+            return (user = null);
+          }
         }
       }
     }
-    if (user === null) {
+    if (userList === null) {
       //redirect
       context.res.writeHead(302, {
         Location: "/",
@@ -36,9 +37,10 @@ const WithUser = (Page) => {
     } else {
       return {
         ...(Page.getInitialProps ? await Page.getInitialProps(context) : {}),
-        user,
+        userList,
         token,
-        userLinks,
+        listSkip: 0,
+        listLimit: 100,
       };
     }
   };

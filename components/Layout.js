@@ -1,80 +1,67 @@
 import Head from "next/head";
-import Link from "next/link";
 import NProgress from "nprogress";
 import Router from "next/router";
 import { isAuth, logout } from "../helpers/auth";
-//
+import Navbar from "../components/Navbar";
+import Notebook from "../components/Notebook";
+
 Router.onRouteChangeStart = (url) => NProgress.start();
 Router.onRouteChangeComplete = (url) => NProgress.done();
 Router.onRouteChangeError = (url) => NProgress.done();
 
 const Layout = ({ children }) => {
-  const nav = () => (
-    <ul className=" ">
-      <li className=" ">
-        <Link href="/">
-          <a className=" " href="">
-            Home
-          </a>
-        </Link>
-      </li>
-
-      <li className=" ">
-        <Link href="/user/link/create">
-          <a href="">Submit a Link</a>
-        </Link>
-      </li>
-      {process.browser && !isAuth() && (
-        <React.Fragment>
-          <li className="">
-            <Link href="/login">
-              <a className=" " href="">
-                Login
-              </a>
-            </Link>
-          </li>
-          <li className=" ">
-            <Link href="/register">
-              <a className=" " href="">
-                Register
-              </a>
-            </Link>
-          </li>
-        </React.Fragment>
-      )}
-      {process.browser && isAuth() && isAuth().role === "admin" && (
-        <li className="nav-item ml-auto">
-          <Link href="/admin">
-            <a href="" className=" ">
-              {isAuth().name}
-            </a>
-          </Link>
-        </li>
-      )}
-      {isAuth() && isAuth().role === "subscriber" && (
-        <li className="">
-          <Link href="/user">
-            <a href="" className="">
-              {isAuth().name}
-            </a>
-          </Link>
-        </li>
-      )}
-      {isAuth() && (
-        <li className=" ">
-          <a onClick={logout} className=" " href="">
-            Logout
-          </a>
-        </li>
-      )}
-    </ul>
-  );
-
   return (
-    <React.Fragment>
-      {nav()}
-      <div className=" ">{children}</div>
-    </React.Fragment>
+    <div className="Layout">
+      <Head>
+        <title>My Foodie Diary</title>
+        <meta propterty="og:title" content="My Foodie Diary" key="title" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap"
+          rel="stylesheet"
+        ></link>
+      </Head>
+      <img src="/static/images/ayce.png" alt="" className="Layout_images--1" />
+      {/* <img
+        src="/static/images/kitchen doodles/2.png"
+        alt=""
+        className="Layout_images--2"
+      /> */}
+      <img src="/static/images/boba.png" alt="" className="Layout_images--3" />
+      {/* <img
+        src="/static/images/kitchen doodles/4.png"
+        alt=""
+        className="Layout_images--4"
+      /> */}
+      <img
+        src="/static/images/tacotues.png"
+        alt=""
+        className="Layout_images--5"
+      />
+      {/* <img
+        src="/static/images/kitchen doodles/6.png"
+        alt=""
+        className="Layout_images--6"
+      /> */}
+      <img
+        src="/static/images/bobarun.png"
+        alt=""
+        className="Layout_images--7"
+      />
+      {/* <img
+        src="/static/images/kitchen doodles/8.png"
+        alt=""
+        className="Layout_images--8"
+      /> */}
+      <img
+        src="/static/images/brunch.png"
+        alt=""
+        className="Layout_images--9"
+      />
+      <Navbar></Navbar>
+      <div className="Layout">
+        <Notebook>{children}</Notebook>
+      </div>
+    </div>
   );
 };
 
