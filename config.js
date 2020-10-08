@@ -1,5 +1,5 @@
 import getConfig from "./publicRuntimeConfig";
-const publicRuntimeConfig = getConfig("public");
+const publicRuntimeConfig = getConfig("private");
 
 export const API = publicRuntimeConfig.API;
 export const APP_NAME = publicRuntimeConfig.APP_NAME;
