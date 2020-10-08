@@ -7,7 +7,7 @@ module.exports = (env) => {
     FB_APP_ID: "ddjksafjadf",
   };
 
-  if (env !== "public") {
+  if (env === "public") {
     return {
       ...publicRunTimeConfig,
       API: "https://www.myfoodiediary.dev/api",
