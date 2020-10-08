@@ -8,6 +8,11 @@ module.exports = (env) => {
   };
 
   if (env !== "public") {
-    return { ...publicRunTimeConfig };
+    return {
+      ...publicRunTimeConfig,
+      API: "https://www.myfoodiediary.dev/api",
+      PRODUCTION: true,
+      DOMAIN: "https://www.myfoodiediary.dev",
+    };
   } else return publicRunTimeConfig;
 };
