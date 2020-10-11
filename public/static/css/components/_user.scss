@@ -25,6 +25,9 @@
     flex-direction: column;
     padding-top: 10rem;
     font-size: 2rem;
+    @include respond("phone") {
+      width: 70%;
+    }
   }
   &_leftContainer {
     width: 50%;
@@ -34,6 +37,10 @@
     padding-top: 10rem;
     font-size: 3rem;
     z-index: 1;
+    @include respond("phone") {
+      font-size: 2rem;
+      width: 30%;
+    }
 
     & > *:hover {
       cursor: pointer;
@@ -66,11 +73,19 @@
     &-image1 {
       width: 50rem;
       height: 40rem;
+      @include respond("phone") {
+        width: 40rem;
+        height: 30rem;
+      }
     }
     &-image2 {
       margin-top: 5rem;
       width: 10rem;
       height: 10rem;
+      @include respond("phone") {
+        width: 6rem;
+        height: 6rem;
+      }
     }
   }
 }
