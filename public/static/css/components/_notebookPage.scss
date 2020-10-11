@@ -44,10 +44,13 @@
     height: 90vh;
     direction: rtl;
     padding: 0 6rem;
-    @media only screen and( max-width: 700px) {
-      width: 100%;
+    @media only screen and( max-width: 550px) {
+      padding: 0 4.5rem 0 2.5rem;
+      margin-left: 0;
+      width: auto;
     }
-
+    @include respond("phoneXS") {
+    }
     & > * {
       direction: ltr;
     }
@@ -86,6 +89,9 @@
       flex-direction: column;
       width: 30%;
       height: 100%;
+      @media only screen and (max-width: "430px") {
+        margin-right: 1rem;
+      }
       & img {
         border-radius: 40px;
         width: 8vw;
@@ -129,6 +135,9 @@
         @media only screen and( max-width: 700px) {
           font-size: 20px;
         }
+        @media only screen and( max-width: 430px) {
+          font-size: 14px;
+        }
         &:hover {
           text-decoration: underline;
           cursor: pointer;
@@ -143,6 +152,9 @@
       &--content {
         font-size: 15px;
         line-height: 30px;
+        @media only screen and (max-width: "430px") {
+          font-size: 12px;
+        }
       }
       &--buttons {
         position: relative;
@@ -156,6 +168,9 @@
         font-family: "Covered By Your Grace", cursive;
 
         text-align: center;
+        @media only screen and (max-width: "430px") {
+          font-size: 13px;
+        }
 
         & > div {
           border-radius: 30px;

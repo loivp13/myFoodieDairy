@@ -15,6 +15,9 @@
   @include respond("tab-port") {
     width: 95vw;
   }
+  @include respond("phone") {
+    width: 100vw;
+  }
   &_left {
     position: relative;
     width: 7%;
