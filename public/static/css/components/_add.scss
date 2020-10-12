@@ -9,12 +9,20 @@
   @include respond("tab-port") {
     width: 60vw;
   }
+  @include respond("phone") {
+    width: 95vw;
+    padding: 3rem;
+  }
   &_card {
+    width: 100%;
   }
   &_form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @include respond("phone") {
+      width: 100vw;
+    }
     & > div > input {
       border: 1 rgba(0, 0, 0, 0.089) solid;
       height: 4rem;
@@ -47,6 +55,9 @@
         padding-left: 1rem;
         @include respond("tab-port") {
           width: 50vw;
+        }
+        @include respond("phone") {
+          width: 100vw;
         }
         &::placeholder {
           color: rgba(63, 116, 141, 0.589);
