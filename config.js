@@ -1,5 +1,5 @@
 import getConfig from "./publicRuntimeConfig";
-const publicRuntimeConfig = process.env.HOST ? getConfig('public'): getConfig("private");
+const publicRuntimeConfig = process.env.HOST==='myfoodiediary.dev' ? getConfig('public'): getConfig("private");
 
 console.log("host",process.env.HOST)
 export const API = publicRuntimeConfig.API;

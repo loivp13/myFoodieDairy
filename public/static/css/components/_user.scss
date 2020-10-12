@@ -18,6 +18,9 @@
     left: 15%;
     transform: rotate(15deg);
     z-index: 4;
+    @include respond("phone") {
+      display: none;
+    }
   }
   &_rightContainer {
     width: 50%;
@@ -40,6 +43,7 @@
     @include respond("phone") {
       font-size: 2rem;
       width: 30%;
+      padding: 10rem 0 0 1rem;
     }
 
     & > *:hover {
@@ -74,8 +78,8 @@
       width: 50rem;
       height: 40rem;
       @include respond("phone") {
-        width: 40rem;
-        height: 30rem;
+        width: 35rem;
+        height: 20rem;
       }
     }
     &-image2 {
