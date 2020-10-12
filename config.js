@@ -1,5 +1,6 @@
 import getConfig from "./publicRuntimeConfig";
 
+
 const publicRuntimeConfig = process.env.HOST==='myfoodiediary.dev' ? getConfig('public'): getConfig("private");
 
 
