@@ -1,6 +1,7 @@
 import getConfig from "./publicRuntimeConfig";
-const publicRuntimeConfig = getConfig("private");
+const publicRuntimeConfig = process.env.HOST ? getConfig('public'): getConfig("private");
 
+console.log("host",process.env.HOST)
 export const API = publicRuntimeConfig.API;
 export const APP_NAME = publicRuntimeConfig.APP_NAME;
 export const PRODUCTIION = publicRuntimeConfig.PRODUCTIION;
