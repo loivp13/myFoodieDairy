@@ -117,6 +117,9 @@
       width: 70%;
       display: flex;
       flex-direction: column;
+      @include respond("phone") {
+        line-height: 30px;
+      }
       & > div {
         height: 20%;
         &:first-child {
@@ -152,6 +155,9 @@
       &--content {
         font-size: 15px;
         line-height: 30px;
+        @include respond("phone") {
+          line-height: 10px;
+        }
         @media only screen and (max-width: "430px") {
           font-size: 12px;
         }

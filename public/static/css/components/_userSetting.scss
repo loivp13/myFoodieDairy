@@ -5,6 +5,9 @@
   z-index: 2;
   transform: rotate(4deg);
   box-shadow: 10px 4px 8px 2px #888888;
+  @include respond("phone") {
+    padding: 2rem;
+  }
   &_form {
     display: flex;
     flex-direction: column;

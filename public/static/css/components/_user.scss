@@ -10,6 +10,10 @@
   border-radius: 50px;
   overflow: hidden;
   z-index: 0;
+  height: 100%;
+  @include respond("phone") {
+    height: 100%;
+  }
   &_images--lines {
     position: absolute;
     width: 10rem;
@@ -30,6 +34,9 @@
     font-size: 2rem;
     @include respond("phone") {
       width: 70%;
+      font-size: 1.6rem;
+      width: 60%;
+      height: 25%;
     }
   }
   &_leftContainer {
@@ -44,6 +51,7 @@
       font-size: 2rem;
       width: 30%;
       padding: 10rem 0 0 1rem;
+      height: 25%;
     }
 
     & > *:hover {

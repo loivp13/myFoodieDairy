@@ -10,7 +10,7 @@
     width: 60vw;
   }
   @include respond("tab-land") {
-    width: 70vw;
+    width: 95vw;
   }
   @include respond("tab-port") {
     width: 95vw;
@@ -45,14 +45,21 @@
 
   &_header {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: 2rem;
-    height: 70%;
+    height: 100%;
     & > img {
-      width: 25vw;
-      height: 15vw;
+      width: 36vw;
+      height: 17vw;
 
       @include respond("tab-land") {
+        width: 55vw;
+        height: 30vw;
+      }
+      @include respond("phone") {
+        width: 85vw;
+        height: 55vw;
       }
     }
   }

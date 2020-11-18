@@ -3,8 +3,12 @@
   flex-direction: column;
   align-items: center;
   padding: 5rem;
+  &_link {
+    color: blue;
+  }
   & > * {
-    font-size: 3rem;
+    font-size: 2rem;
+    word-break: break-all;
   }
   &_button {
     &--confirm {

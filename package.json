@@ -34,6 +34,7 @@
     "react-rating": "^2.0.5",
     "react-render-html": "^0.6.0",
     "react-responsive": "^8.1.0",
+    "react-window-size": "^1.2.2",
     "sass": "^1.26.10"
   }
 }
