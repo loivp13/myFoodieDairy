@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Slideshow from '../components/Slideshow';
 
+import Head from 'next/head'
 
 const Home = () => {
 
@@ -119,6 +120,9 @@ const renderResponsiveSlideshow = () => {
   return (
 
     <Layout>
+    <Head>
+      
+    </Head>
       <img
         className="MFD_logo-image"
         src="/static/images/MFDLogo1.jpg"

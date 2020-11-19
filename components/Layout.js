@@ -14,11 +14,16 @@ const Layout = ({ children }) => {
     <div className="Layout">
       <Head>
         <title>My Foodie Diary</title>
-        <meta propterty="og:title" content="My Foodie Diary" key="title" />
         <link
           href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap"
           rel="stylesheet"
         ></link>
+        <meta propterty="og:title" content="My Foodie Diary" key="title" />
+        <meta charset="UTF-8"/>
+        <meta name="description" content="Loi Van Pham's portfolio showing all big projects"/>
+        <meta name="keywords" content="Portfolio, projects, react, NextJS, web development, Javascript, CSS3, DigitalOcean, SEO, NodeJS, Express,Front End, Back End"/>
+        <meta name="author" content="loivp"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Head>
       <img src="/static/images/ayce.png" alt="" className="Layout_images--1" />
       {/* <img
